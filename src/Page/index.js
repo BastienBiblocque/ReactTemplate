@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Header from "../Component/header";
+import Calculator from "../Component/calculator";
 
 function Index() {
     const [count, setCount] = useState(0);
@@ -11,9 +12,7 @@ function Index() {
     return (
         <>
             <Header/>
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
+            <Calculator/>
         </>
     );
 }
