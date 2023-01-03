@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Style/calculator.css';
 import axios from "axios";
+import {toast, Toaster} from "react-hot-toast";
 function Calculator() {
     const [operation, setOperation] = React.useState('');
     const [result, setResult] = React.useState('');
@@ -33,6 +34,13 @@ function Calculator() {
 
     const calculate = () => {
         const payload = destructOperation(operation);
+        if (payload.number1 && payload.number2 && payload.sign)
+            postOperation(payload);
+        else
+            toast.error("Une erreur est présente dans votre calcul.");
+    }
+
+    const postOperation = (payload) => {
         axios.post('http://localhost:5089', payload).then((response) => {
             console.log(response)
         });
@@ -60,6 +68,7 @@ function Calculator() {
 
     return (
         <div className="calculator mx-auto">
+            <Toaster/>
             <div className="container">
                 <div className="calc-body">
                     <div className="calc-screen">
