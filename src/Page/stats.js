@@ -30,27 +30,29 @@ function Stats() {
     return (
         <>
             <Header/>
-            <div className="">
-                {isLoading ?
-                    <div className="w-full mt-8 grid justify-items-center">
-                        <RotatingSquare
-                            height="100"
-                            width="100"
-                            color="#dc944c"
-                            ariaLabel="rotating-square-loading"
-                            strokeWidth="4"
-                            wrapperStyle={{}}
-                            wrapperClass=""
-                            visible={true}
+            <div>
+                <div className="min-h-screen">
+                    {isLoading ?
+                        <div className="w-full mt-8 grid justify-items-center">
+                            <RotatingSquare
+                                height="100"
+                                width="100"
+                                color="#dc944c"
+                                ariaLabel="rotating-square-loading"
+                                strokeWidth="4"
+                                wrapperStyle={{}}
+                                wrapperClass=""
+                                visible={true}
+                            />
+                        </div>:
+                        <VictoryPie
+                            data={datas}
+                            colorScale={["tomato", "orange", "gold", "red"]}
+                            height={200}
+                            style={{labels: {fill: "white", fontSize: 15}}}
                         />
-                    </div>:
-                    <VictoryPie
-                        data={datas}
-                        colorScale={["tomato", "orange", "gold", "red"]}
-                        height={200}
-                        style={{labels: {fill: "white", fontSize: 15}}}
-                    />
-                }
+                    }
+                </div>
             </div>
             <Footer/>
         </>
