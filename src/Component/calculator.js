@@ -69,7 +69,7 @@ function Calculator() {
     return (
         <div className="calculator mx-auto">
             <Toaster/>
-            <div className="container">
+            <div className="container select-none">
                 <div className="calc-body">
                     <div className="calc-screen">
                         <div className="calc-operation">{result ? result : 'Total'}</div>
