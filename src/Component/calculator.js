@@ -33,43 +33,41 @@ function Calculator() {
     }
 
     const calculate = () => {
-        const payload = destructOperation(operation);
-        if (payload.number1 && payload.number2 && payload.sign)
+        const payload = generatePayload(operation);
+        if (payload.input1 && payload.input2 && payload.OperationType)
             postOperation(payload);
         else
             toast.error("Une erreur est présente dans votre calcul.");
     }
 
-    const postOperation = (payload) => {
-        axios.post('http://localhost:5089', payload).then((response) => {
-            console.log(response)
-        });
-    }
-
-    const getSign = (operation) => {
-        let signSelected = '';
-        signs.forEach((sign) => {
-            if (operation.includes(sign)) {
-                signSelected=sign;
-            }
-        })
-        return signSelected;
-    }
-
-    const destructOperation = (operation) => {
+    const generatePayload = (operation) => {
         const signSelected = getSign(operation);
         const numbersSelected = operation.split(signSelected);
         return {
-            sign: correspondance[signSelected],
-            number1: numbersSelected[0],
-            number2: numbersSelected[1]
+            OperationType: correspondance[signSelected],
+            input1: numbersSelected[0],
+            input2: numbersSelected[1]
         }
+    }
+    const getSign = (operation) => {
+        let signSelected = '';
+        signs.forEach((sign) => {
+            if (operation.includes(sign))
+                signSelected=sign;
+        })
+        return signSelected;
+    }
+    const postOperation = (payload) => {
+        axios.post('https://localhost:7140/Calculatrice', payload).then((response) => {
+            setResult(response.data.output);
+            resetOperation();
+        });
     }
 
     return (
         <div className="calculator mx-auto">
             <Toaster/>
-            <div className="container select-none">
+            <div className="container select-none min-h-screen">
                 <div className="calc-body">
                     <div className="calc-screen">
                         <div className="calc-operation">{result ? result : 'Total'}</div>
