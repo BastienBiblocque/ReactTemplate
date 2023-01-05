@@ -75,8 +75,8 @@ function Calculator() {
                     </div>
                     <div className="calc-button-row">
                         <div className="button c" onClick={()=>{resetOperation()}}>C</div>
-                        <div className="button ">_</div>
-                        <div className="button ">_</div>
+                        <div className="button ">(</div>
+                        <div className="button ">)</div>
                         <div className="button l" onClick={()=>{addInput('/')}}>/</div>
                     </div>
                     <div className="calc-button-row">
