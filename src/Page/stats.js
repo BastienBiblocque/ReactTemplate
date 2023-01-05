@@ -7,22 +7,20 @@ import Footer from "../Component/footer";
 
 //doc pour les loaders https://mhnpd.github.io/react-loader-spinner/docs/category/components/
 function Stats() {
-    const datas = [{x: "Addition", y: 50}, {x: "Soustraction", y: 50}, {x: "Multiplication", y: 50},{x: "Division", y: 50}];
+    const [statistics, setStatistics] = React.useState([]);
 
     const [isLoading, setIsLoading] = React.useState(true);
 
     useEffect(() => {
-        // getStats();
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 3000);
+        getStats();
     }, [])
 
     const getStats = () => {
-        axios.get('http://localhost:5089').then((response) => {
-            setIsLoading(false);
-        }).catch((error) => {
-            console.log(error)
+        axios.get('https://localhost:7140/Statistics').then((response) => {
+            Object.keys(response.data).forEach(function(key, index) {
+                statistics.push({x: key, y: response.data[key]});
+            });
+            setStatistics(statistics);
             setIsLoading(false);
         });
     }
@@ -46,7 +44,7 @@ function Stats() {
                             />
                         </div>:
                         <VictoryPie
-                            data={datas}
+                            data={statistics}
                             colorScale={["tomato", "orange", "gold", "red"]}
                             height={200}
                             style={{labels: {fill: "white", fontSize: 15}}}

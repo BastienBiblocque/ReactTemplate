@@ -58,7 +58,7 @@ function Calculator() {
         return signSelected;
     }
     const postOperation = (payload) => {
-        axios.post('https://localhost:7140/Calculatrice', payload).then((response) => {
+        axios.post('https://localhost:7140/Calculate', payload).then((response) => {
             setResult(response.data.output);
             resetOperation();
         });
@@ -75,6 +75,9 @@ function Calculator() {
                     </div>
                     <div className="calc-button-row">
                         <div className="button c" onClick={()=>{resetOperation()}}>C</div>
+                        <div className="button ">_</div>
+                        <div className="button ">_</div>
+                        <div className="button l" onClick={()=>{addInput('/')}}>/</div>
                     </div>
                     <div className="calc-button-row">
                         <div className="button" onClick={()=>{addInput('7')}}>7</div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import Mascotte from "../image/Mascotte.png";
+import Mascotte from "../Image/Mascotte.png";
 function Header() {
 
     return (
