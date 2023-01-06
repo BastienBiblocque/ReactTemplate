@@ -14,4 +14,6 @@ Le dossier `src` contient les différents éléments de l'application, il est co
 - `Image` : contient les images de l'application
 - `Hooks` : contient les différents hooks de l'application permettant de récupérer les données de l'API
 
+![Arborescence](https://raw.githubusercontent.com/BastienBiblocque/OuistitiFront/dev/Documentation/Arborescence.png)
+
 Le router de l'application est géré par le fichier `index.js` qui se trouve dans le dossier `src`.
