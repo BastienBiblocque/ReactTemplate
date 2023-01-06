@@ -58,7 +58,7 @@ function Calculator() {
         return signSelected;
     }
     const postOperation = (payload) => {
-        axios.post('https://localhost:7140/Calculate', payload).then((response) => {
+        axios.post('https://localhost:7140/Calcul', payload).then((response) => {
             setResult(response.data.output);
             resetOperation();
         });
