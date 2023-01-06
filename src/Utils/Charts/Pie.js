@@ -1,5 +1,4 @@
 import React from 'react';
-import {RotatingSquare} from 'react-loader-spinner'
 import {VictoryPie} from "victory";
 function PieCharts(props) {
     return (
