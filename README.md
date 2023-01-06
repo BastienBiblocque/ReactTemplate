@@ -1,4 +1,8 @@
-# Ouistiti Calculator Front
+# Ouistiti Calculator Front 
+
+git clone https://github.com/BastienBiblocque/OuistitiFront/
+
+Se placer dans le dossier `OuistitiFront`
 
 Lancer initialiser le projet avec react utiliser : `npm install`
 
