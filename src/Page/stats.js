@@ -6,8 +6,6 @@ import SquareLoader from "../Utils/Loader/SquareLoader";
 import PieChart from "../Utils/Charts/Pie";
 function Stats() {
     const statistics = useGetStatistics();
-
-    console.log(statistics.statistics);
     return (
         <>
             <Header/>

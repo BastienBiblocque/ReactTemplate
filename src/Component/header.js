@@ -13,6 +13,9 @@ function Header() {
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
+                    <li><Link to="/historique">Historique</Link></li>
+                </ul>
+                <ul className="menu menu-horizontal px-1">
                     <li><Link to="/stats">Statistiques</Link></li>
                 </ul>
             </div>
