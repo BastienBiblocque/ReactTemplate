@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
 function useGetWeathers () {
-    const [statistics, setStatistics] = useState([]);
+    const [weather, setWeather] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        statistics.length=0;
+        weather.length=0;
         axios.get('https://api.openweathermap.org/data/2.5/weather?lat=1&lon=1&appid=407165e99deffff1d3b70d3360f1edd0&units=metric')
             .then((response) => {
-                setStatistics(statistics => [...statistics, {name: 'Température', value: response.data.main.temp}]);
+                setWeather(statistics => [...statistics, {name: 'Température', value: response.data.main.temp}]);
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -17,7 +17,7 @@ function useGetWeathers () {
             });
     }, []);
 
-    return {statistics, isLoading};
+    return {weather, isLoading};
 }
 
 export default useGetWeathers;
