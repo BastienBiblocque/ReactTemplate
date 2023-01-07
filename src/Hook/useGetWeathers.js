@@ -1,18 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
-function useGetStatistics () {
+function useGetWeathers () {
     const [statistics, setStatistics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         statistics.length=0;
-        axios.get('https://localhost:7140/Statistics')
+        axios.get('https://api.openweathermap.org/data/2.5/weather?lat=1&lon=1&appid=407165e99deffff1d3b70d3360f1edd0&units=metric')
             .then((response) => {
-                Object.keys(response.data).forEach(function(key, index) {
-                    statistics.push({x: key, y: response.data[key]});
-                });
-                setStatistics(statistics);
+                setStatistics(statistics => [...statistics, {name: 'Température', value: response.data.main.temp}]);
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -23,4 +20,4 @@ function useGetStatistics () {
     return {statistics, isLoading};
 }
 
-export default useGetStatistics;
+export default useGetWeathers;

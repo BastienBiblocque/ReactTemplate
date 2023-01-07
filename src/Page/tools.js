@@ -1,22 +1,23 @@
 import React from 'react';
 import Header from "../Component/header";
 import Footer from "../Component/footer";
-import useGetStatistics from "../Hook/useGetStatistics";
+import useGetWeathers from "../Hook/useGetWeathers";
 import SquareLoader from "../Utils/Loader/SquareLoader";
 import PieChart from "../Utils/Charts/Pie";
-function Stats() {
-    const statistics = useGetStatistics();
+function Tools() {
+    const weather = useGetWeathers();
+
     return (
         <>
             <Header/>
             <div>
                 <div className="min-h-screen">
-                    {statistics.isLoading ?
+                    {weather.isLoading ?
                         <div className="w-full mt-8 grid justify-items-center">
                             <SquareLoader />
                         </div>
                         :
-                        <PieChart statistics={statistics.statistics} />
+                        <PieChart />
                     }
                 </div>
             </div>
@@ -25,4 +26,4 @@ function Stats() {
     );
 }
 
-export default Stats;
+export default Tools;

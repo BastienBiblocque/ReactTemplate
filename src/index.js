@@ -4,16 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Index from "./Page";
-import Stats from "./Page/stats";
-import Historique from "./Page/historique";
+import Tools from "./Page/tools";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/stats" element={<Stats />} />
-            <Route path="/historique" element={<Historique />} />
+            <Route path="/tools" element={<Tools />} />
         </Routes>
     </BrowserRouter>
 );
