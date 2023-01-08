@@ -10,6 +10,8 @@ Avec comme outils :
 - La bibliothèque de notification (react-toastify)
 - La bibliothèque axios pour les requêtes HTTP
 - La bibliothèque chart.js pour les graphiques
+- La bibliothèque i18next pour la traduction
+- La bibliothèque country-flag-icons pour les drapeaux
 
 
 Structure du projet :
@@ -41,4 +43,11 @@ https://daisyui.com/
 Pour modifier le thème de daisy, il faut modifier le fichier tailwind.config.js
 
 
+## I18next
+```
+https://react.i18next.com/
+```
 
+Pour ajouter une nouvelle langue, il faut modifier le fichier i18n.js
+
+Les fichiers de langue sont dans le dossier i18n
