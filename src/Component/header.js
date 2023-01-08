@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 function Header() {
+    const { t } = useTranslation();
 
     return (
         <div className="navbar bg-primary">
@@ -9,7 +11,7 @@ function Header() {
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to="/tools">Outil</Link></li>
+                    <li><Link to="/tools">{t('Tools')}</Link></li>
                 </ul>
             </div>
         </div>

@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Index from "./Page";
 import Tools from "./Page/tools";
+import './i18n/i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
